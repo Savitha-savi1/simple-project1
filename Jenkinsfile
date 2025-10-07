@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Savitha-savi1/simple-project1.git', branch: 'master'
+                checkout([$class: 'GitSCM',
+                    branches: [[name: 'main']],
+                    userRemoteConfigs: [[url: 'https://github.com/Savitha-savi1/simple-project1.git']]])
             }
         }
         stage('Deploy to S3') {
