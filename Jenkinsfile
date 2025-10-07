@@ -12,9 +12,9 @@ pipeline {
         }
         stage('Deploy to S3') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aws-s3-creds', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([usernamePassword(credentialsId: 'aws-creds', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh '''
-                        aws s3 sync . s3://$S3_BUCKET --delete --exclude ".git/*" --exclude "Jenkinsfile"
+                        aws s3 sync . s3://$S3_BUCKET --delete --exclude ".git" --exclude "Jenkinsfile"
                     '''
                 }
             }
