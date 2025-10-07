@@ -2,12 +2,12 @@ pipeline {
     agent any
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
-        S3_BUCKET = 'hello-my-static-site-bucket'
+        S3_BUCKET = 'jenkins-maven-deploy-demo'
     }
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Manju-dotcom871/my-static-site.git', branch: 'main'
+                git url: 't', branch: 'main'
             }
         }
         stage('Deploy to S3') {
