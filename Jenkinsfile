@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 't', branch: 'main'
+                git url: 'https://github.com/Savitha-savi1/simple-project1.git', branch: 'main'
             }
         }
         stage('Deploy to S3') {
